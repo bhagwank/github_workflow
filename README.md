@@ -1,6 +1,6 @@
 # Hello-world
 **MY self bhagwan
-~~queen of the ~~
+~~king of the ~~
 
 
 2nd commit
