@@ -1,0 +1,16 @@
+name: TEST
+
+on:
+  push:
+    branches:
+      - master
+      - 'bhagwan/*'
+jobs:
+  build:
+    runs-on: ubuntu-22.04
+
+    steps:
+    - name: Check out the code
+      uses: actions/checkout@v2
+    - name: Display system info
+      run: uname -a
