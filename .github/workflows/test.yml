@@ -17,3 +17,9 @@ jobs:
       run: uname -a
     - name: Display system info
       run: ls -lrt
+    - name: Upload Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: TEST_ARTIFACT
+          path:
+            ${{ github.workspace }}/scripts/*
