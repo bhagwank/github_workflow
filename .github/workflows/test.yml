@@ -17,8 +17,14 @@ jobs:
       run: uname -a
     - name: Display system info
       run: ls -lrt
-    - name: Display system info
-      run: apt-get install mailutils
+    - name: Ensure dpkg is configured and no locks are held
+      run: |
+        sudo rm -f /var/lib/dpkg/lock-frontend
+        sudo rm -f /var/lib/dpkg/lock
+        sudo dpkg --configure -a
+        sudo apt-get update
+    - name: Install mailuttils
+      run: sudo apt-get install -y mailutils
     - name: Upload Artifact
       uses: actions/upload-artifact@v4
       with:
