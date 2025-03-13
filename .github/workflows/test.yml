@@ -17,6 +17,8 @@ jobs:
       run: uname -a
     - name: Display system info
       run: ls -lrt
+    - name: Display system info
+      run: apt-get install mailutils
     - name: Upload Artifact
       uses: actions/upload-artifact@v4
       with:
