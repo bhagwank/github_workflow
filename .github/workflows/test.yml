@@ -23,3 +23,6 @@ jobs:
         name: TEST_ARTIFACT
         path:
             ${{ github.workspace }}/scripts/*
+    - name: Send email
+      run: |
+        echo "Build Completed" | mail -s "GitHub Actions Status" khodiarbhagwan@gmail.com
