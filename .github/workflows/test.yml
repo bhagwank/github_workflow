@@ -16,7 +16,7 @@ jobs:
     - name: Display system info
       run: uname -a
     - name: Display system info
-      run: ls -lrt
+      run: ls -lrth
     - name: Ensure dpkg is configured and no locks are held
       run: |
         sudo rm -f /var/lib/dpkg/lock-frontend
