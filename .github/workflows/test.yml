@@ -8,7 +8,7 @@ on:
       - release
   workflow_dispatch:
   schedule:
-    - cron: '27 11 * * *'  
+    - cron: '38 11 * * *'  
 jobs:
   build:
     runs-on: ubuntu-22.04
