@@ -19,9 +19,8 @@ jobs:
       run: |
         echo "DATE=$(date +'%Y-%m-%d')" >> $GITHUB_ENV
         echo "Date is ${{ env.DATE }}"
-    
-    - name: Print DATE variable
-      run: echo "DATE is ${{ env.DATE }}"
+    - name : print date
+      run: echo "Date is ${{ env.DATE }}"
 
     - name: Ensure dpkg is configured and no locks are held
       run: |
