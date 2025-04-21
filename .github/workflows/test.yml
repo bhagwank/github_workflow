@@ -16,7 +16,10 @@ jobs:
     - name: Display system info
       run: uname -a
     - name: Display system info
-      run: date
+      run: |
+        echo "DATE=$(date +'%Y-%m-%d')" >> $GITHUB_ENV
+        echo "Date is $GITHUB_ENV"
+      
     - name: Ensure dpkg is configured and no locks are held
       run: |
         sudo rm -f /var/lib/dpkg/lock-frontend
