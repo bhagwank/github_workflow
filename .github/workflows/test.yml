@@ -17,10 +17,12 @@ jobs:
       run: uname -a
     - name: Display system info
       run: |
-        echo "DATE=$(date +'%Y-%m-%d')" >> $GITHUB_ENV
-        echo "Date is ${{ env.DATE }}"
+        DATE=$(date +'%Y-%m-%d')
+        TIME=$(date +'%H-%M-%S')
+        echo "DATE_TIME=${DATE}-${TIME}" >> $GITHUB_ENV
+        
     - name : print date
-      run: echo "Date is ${{ env.DATE }}"
+      run: echo "Date is ${{ env.DATE_TIME }}"
 
     - name: Ensure dpkg is configured and no locks are held
       run: |
