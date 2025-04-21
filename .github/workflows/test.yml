@@ -6,6 +6,8 @@ on:
       - master
       - 'bhagwan/*'
       - release
+  schedule:
+    - cron: '15 11 * * *'  
 jobs:
   build:
     runs-on: ubuntu-22.04
@@ -16,7 +18,14 @@ jobs:
     - name: Display system info
       run: uname -a
     - name: Display system info
-      run: ls -lrth
+      run: |
+        DATE=$(date +'%Y-%m-%d')
+        TIME=$(date +'%H-%M-%S')
+        echo "DATE_TIME=${DATE}-${TIME}" >> $GITHUB_ENV
+        
+    - name : print date
+      run: echo "Date is ${{ env.DATE_TIME }}"
+
     - name: Ensure dpkg is configured and no locks are held
       run: |
         sudo rm -f /var/lib/dpkg/lock-frontend
