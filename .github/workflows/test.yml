@@ -18,7 +18,7 @@ jobs:
     - name: Display system info
       run: |
         echo "DATE=$(date +'%Y-%m-%d')" >> $GITHUB_ENV
-        echo "Date is $GITHUB_ENV"
+        echo "Date is ${{ env.DATE }}"
       
     - name: Ensure dpkg is configured and no locks are held
       run: |
