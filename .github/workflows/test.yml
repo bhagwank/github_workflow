@@ -20,6 +20,11 @@ jobs:
       uses: actions/checkout@v2
     - name: Print GitHub Ref
       run: echo "GitHub ref is ${{ github.ref }}"
+    
+    - name: Copy artifacts to release folder
+      if: startsWith(github.ref, 'refs/tags/')
+      run: ls -lrt
+
     - name: Display system info
       run: uname -a
     - name: Display system info
