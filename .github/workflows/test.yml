@@ -1,6 +1,7 @@
 name: TEST
 
 on:
+  workflow_dispatch:
   push:
     branches:
       - master
@@ -8,7 +9,6 @@ on:
       - release
     tags:
       - '*'
-  workflow_dispatch:
   schedule:
     - cron: '35 11 * * *'  
 jobs:
