@@ -6,6 +6,8 @@ on:
       - master
       - 'bhagwan/*'
       - release
+     tags:
+       - "*"
   workflow_dispatch:
   schedule:
     - cron: '35 11 * * *'  
