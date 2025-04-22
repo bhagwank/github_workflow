@@ -18,9 +18,8 @@ jobs:
     steps:
     - name: Check out the code
       uses: actions/checkout@v2
-    
     - name: Print GitHub Ref
-      run: echo "GitHub ref is ${{ github.ref }}"
+      run: echo "GitHub ref is ${{ github.ref }}"
     - name: Display system info
       run: uname -a
     - name: Display system info
