@@ -23,7 +23,7 @@ jobs:
     
     - name: Copy artifacts to release folder
       if: startsWith(github.ref, 'refs/tags/')
-      run: ls -lrt
+      run: echo "Tag name: ${{ github.ref_name }}"
 
     - name: Display system info
       run: uname -a
