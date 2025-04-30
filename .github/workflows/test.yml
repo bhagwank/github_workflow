@@ -16,7 +16,7 @@ jobs:
     runs-on: ubuntu-22.04
     env:
       DATE: $(date +'%Y%m%d')
-      DIR: ${{ github.workspace }}/${{ DATE }}/test
+      DIR: ${{ github.workspace }}/$DATE/test
     steps:
     - name: Check out the code
       uses: actions/checkout@v2
