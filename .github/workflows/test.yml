@@ -24,6 +24,7 @@ jobs:
       run: |  
             echo "DATE is ${{ env.DATE }}"
             echo "DIR is ${{ env.DIR }}"
+            echo "DIR is $DIR"
             mkdir ${{ env.DIR }}
             echo "GitHub ref is ${{ github.ref }}"
             echo "DATE is ${{ env.DATE }}"
