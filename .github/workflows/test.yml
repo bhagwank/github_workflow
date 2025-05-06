@@ -49,8 +49,9 @@ jobs:
       uses: actions/upload-artifact@v4
       with:
         name: TEST_ARTIFACT
+        if-no-files-found: error
         path:
-            ${{ github.workspace }}/scripts/*
+            ${{ github.workspace }}/scripts/test.md
     - name: Send email
       run: |
         echo "Build Completed" | mail -s "GitHub Actions Status" khodiarbhagwan@gmail.com
