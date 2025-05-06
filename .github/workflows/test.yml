@@ -52,6 +52,7 @@ jobs:
         if-no-files-found: error
         path:
             ${{ github.workspace }}/scripts/test.md
+            ${{ github.workspace }}/scripts/readme.md
     - name: Send email
       run: |
         echo "Build Completed" | mail -s "GitHub Actions Status" khodiarbhagwan@gmail.com
