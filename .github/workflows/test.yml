@@ -49,9 +49,9 @@ jobs:
       uses: actions/upload-artifact@v4
       with:
         name: TEST_ARTIFACT
-        if-no-files-found: error
+        if-no-files-found: ignore
         path:
-            ${{ github.workspace }}/scripts/readme.md
+            ${{ github.workspace }}/scripts/readme1.md
     - name: Send email
       run: |
         echo "Build Completed" | mail -s "GitHub Actions Status" khodiarbhagwan@gmail.com
