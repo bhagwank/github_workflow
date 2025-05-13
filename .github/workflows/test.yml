@@ -14,6 +14,8 @@ on:
 jobs:
   build:
     runs-on: ubuntu-22.04
+    env:
+      WORKDIR: /a/b/c
 
     steps:
     - name: Check out the code
@@ -45,6 +47,10 @@ jobs:
         sudo apt-get update
     - name: Install mailuttils
       run: sudo apt-get install -y mailutils
+
+    - name: Run the script
+      run : scripts/test.sh $WORKDIR
+  
     - name: Upload Artifact
       uses: actions/upload-artifact@v4
       with:
