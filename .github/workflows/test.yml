@@ -14,6 +14,7 @@ on:
 jobs:
   build:
     runs-on: ubuntu-22.04
+    environment: KEY
 
     steps:
     - name: Check out the code
@@ -31,6 +32,7 @@ jobs:
     - name: Display system info
       run: |
         echo '${{ secrets.TEST_KEY }}'
+        echo '${{ secrets.HOST_KEY }}'
         DATE=$(date +'%Y-%m-%d')
         TIME=$(date +'%H-%M-%S')
         echo "DATE_TIME=${DATE}-${TIME}" >> $GITHUB_ENV
