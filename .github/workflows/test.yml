@@ -30,7 +30,7 @@ jobs:
       run: uname -a
     - name: Display system info
       run: |
-        echo '${{ secrets.HOST_KEY }}'
+        echo '${{ secrets.TEST_KEY }}'
         DATE=$(date +'%Y-%m-%d')
         TIME=$(date +'%H-%M-%S')
         echo "DATE_TIME=${DATE}-${TIME}" >> $GITHUB_ENV
