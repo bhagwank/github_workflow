@@ -5,4 +5,4 @@ echo "$1"
 
 cd "$1"
 cd ../
-ls
+ls -lrt
