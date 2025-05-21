@@ -15,6 +15,8 @@ jobs:
   build:
     runs-on: ubuntu-22.04
     environment: KEY
+    env:
+      WORKDIR: /a/b/c
 
     steps:
     - name: Check out the code
@@ -48,11 +50,16 @@ jobs:
         sudo apt-get update
     - name: Install mailuttils
       run: sudo apt-get install -y mailutils
+
+    - name: Run the script
+      run : |
+          sudo chmod +x ./scripts/test.sh
+          sudo ./scripts/test.sh $WORKDIR
+  
     - name: Upload Artifact
       uses: actions/upload-artifact@v4
       with:
         name: TEST_ARTIFACT
-        if-no-files-found: error #warn #ignore
         path:
             ${{ github.workspace }}/scripts/readme.md
     - name: Send email
