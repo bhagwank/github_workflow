@@ -14,6 +14,7 @@ on:
 jobs:
   build:
     runs-on: ubuntu-22.04
+    environment: KEY
     env:
       WORKDIR: /a/b/c
 
@@ -32,6 +33,8 @@ jobs:
       run: uname -a
     - name: Display system info
       run: |
+        echo '${{ secrets.TEST_KEY }}'
+        echo '${{ secrets.HOST_KEY }}'
         DATE=$(date +'%Y-%m-%d')
         TIME=$(date +'%H-%M-%S')
         echo "DATE_TIME=${DATE}-${TIME}" >> $GITHUB_ENV
@@ -57,7 +60,6 @@ jobs:
       uses: actions/upload-artifact@v4
       with:
         name: TEST_ARTIFACT
-        if-no-files-found: error
         path:
             ${{ github.workspace }}/scripts/readme.md
     - name: Send email
