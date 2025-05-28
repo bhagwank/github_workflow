@@ -42,7 +42,9 @@ jobs:
         echo "FLAG: $FLAG"
         
     - name : print date
-      run: echo "Date is ${{ env.DATE_TIME }}"
+      run: |
+        echo "Date is ${{ env.DATE_TIME }}"
+        echo "FLAG: $FLAG"
 
     - name: Ensure dpkg is configured and no locks are held
       run: |
