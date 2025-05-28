@@ -38,7 +38,7 @@ jobs:
         DATE=$(date +'%Y-%m-%d')
         TIME=$(date +'%H-%M-%S')
         echo "DATE_TIME=${DATE}-${TIME}" >> $GITHUB_ENV
-        echo "FLAG=$WORKDIR/build_flag" >>  $GITHUB_ENV
+        echo "FLAG=$($WORKDIR/build_flag)" >>  $GITHUB_ENV
         echo "Date is ${{ env.FLAG }}"
         
     - name : print date
