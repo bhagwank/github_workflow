@@ -37,7 +37,7 @@ jobs:
         echo '${{ secrets.HOST_KEY }}'
         DATE=$(date +'%Y-%m-%d')
         TIME=$(date +'%H-%M-%S')
-        WORKDIR="/a/b/c/d"
+        WORKDIR="/a/b/c/d";echo "WORKDIR=$WORKDIR" >> $GITHUB_ENV
         echo "DATE_TIME=${DATE}-${TIME}" >> $GITHUB_ENV
         echo "FLAG=$WORKDIR/build_flag" >>  $GITHUB_ENV
         echo "Date is ${{ env.FLAG }}"
