@@ -48,7 +48,7 @@ jobs:
         MAX_RETRIES=5
         SLEEP_SEC=60 
         for i in $(seq 1 $MAX_RETRIES); do
-          if [[ -f "scripts/test.sh" ]]; then
+          if [[ -f "scripts/test.s" ]]; then
             echo "Software build completed."
             exit 0
           else
