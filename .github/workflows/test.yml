@@ -38,13 +38,26 @@ jobs:
         DATE=$(date +'%Y-%m-%d')
         TIME=$(date +'%H-%M-%S')
         echo "DATE_TIME=${DATE}-${TIME}" >> $GITHUB_ENV
-        echo "FLAG=${WORKDIR}/${{ env.DATE }}/build_flag" >> $GITHUB_ENV
+        echo "FLAG=${WORKDIR}/build_flag" >> $GITHUB_ENV
         echo "FLAG: $FLAG"
         
     - name : print date
       run: |
         echo "Date is ${{ env.DATE_TIME }}"
         echo "FLAG: $FLAG"
+        MAX_RETRIES=5
+        SLEEP_SEC=60 
+        for i in $(seq 1 $MAX_RETRIES); do
+          if [[ -f "scripts/test.sh" ]]; then
+            echo "Software build completed."
+            exit 0
+          else
+            echo "Wait for software build... Attempt $i/$MAX_RETRIES"
+            sleep $SLEEP_SEC
+          fi
+         done
+         echo "Error: Software build did not complete in time."
+         exit 1
 
     - name: Ensure dpkg is configured and no locks are held
       run: |
