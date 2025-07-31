@@ -15,4 +15,4 @@ jobs:
     - name: Check out the code
       uses: actions/checkout@v2
     - name: wait
-      run: sleep 120
+      run: sleep 50
