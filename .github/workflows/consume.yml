@@ -9,11 +9,15 @@ on:
 jobs:
   build:
     runs-on: ubuntu-22.04
-    if: (github.event.workflow_run.event == 'schedule' || startswith(github.event.workflow_run.head_branch, 'master'))
+    if: >
+       github.event.workflow_run.event == 'schedule' ||
+       !contains(' main master ', format(' {0} ', github.event.workflow_run.head_branch))
     steps:
     - name: Check out the code
       uses: actions/checkout@v2
     - name: Dump GitHub context
       run: echo '${{ toJson(github.event.workflow_run) }}'
     - name: wait
-      run: sleep 10
+      run: |
+        echo "Event: ${{ github.event.workflow_run.event }}"
+        echo "Head branch: ${{ github.event.workflow_run.head_branch }}"
