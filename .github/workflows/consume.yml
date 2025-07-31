@@ -5,6 +5,9 @@ on:
     workflows: ["produce"]
     types:
       - completed
+  push:
+    branches:
+      - master
   workflow_dispatch:
 jobs:
   build:
