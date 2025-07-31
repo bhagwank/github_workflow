@@ -1,0 +1,22 @@
+name: consume
+
+on:
+  workflow_run:
+    workflows: ["produce"]
+    types:
+      - completed
+  workflow_dispatch:
+  push:
+    branches:
+      - master
+    tags:
+      - '*'
+jobs:
+  build:
+    runs-on: ubuntu-22.04
+
+    steps:
+    - name: Check out the code
+      uses: actions/checkout@v2
+    - name: wait
+      run: sleep 10
