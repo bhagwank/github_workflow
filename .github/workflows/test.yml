@@ -39,9 +39,16 @@ jobs:
     - name: Display system info
       run: |
         uname -a
+        set -x
         cd ${{ github.workspace }}/scripts
         chmod +x script.sh
         ./script.sh
+        TEST_EXIT_CODE=$?
+        if [ $TEST_EXIT_CODE -ne 0 ]; then
+          echo "--- verification  FAILED ($TEST_EXIT_CODE) ---"
+        else
+          echo "--- verification PASSED  ---"
+        fi
         ls -lrt 
     - name: Display system info
       continue-on-error: true
@@ -71,6 +78,7 @@ jobs:
     - name: Send email
       run: |
         echo "Build Completed" | mail -s "GitHub Actions Status" khodiarbhagwan@gmail.com
+
 
 
 
