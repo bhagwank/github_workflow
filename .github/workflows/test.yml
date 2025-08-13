@@ -37,12 +37,17 @@ jobs:
             echo "Tag name: ${{ github.ref_name }}"
       
     - name: Display system info
-      run: uname -a
+      run: |
+        uname -a
+        exit 1
+      continue-on-error: true
     - name: Display system info
+      continue-on-error: true
       run: |
         DATE=$(date +'%Y-%m-%d')
         TIME=$(date +'%H-%M-%S')
         echo "DATE_TIME=${DATE}-${TIME}" >> $GITHUB_ENV
+        exit 1
         
     - name : print date
       run: echo "Date is ${{ env.DATE_TIME }}"
@@ -64,3 +69,4 @@ jobs:
     - name: Send email
       run: |
         echo "Build Completed" | mail -s "GitHub Actions Status" khodiarbhagwan@gmail.com
+
