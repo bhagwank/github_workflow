@@ -39,7 +39,9 @@ jobs:
     - name: Display system info
       run: |
         uname -a
-        exit 1
+        cd ${{ github.workspace }}/scripts
+        chmod +x script.sh
+        ./script.sh
       continue-on-error: true
     - name: Display system info
       continue-on-error: true
@@ -69,4 +71,5 @@ jobs:
     - name: Send email
       run: |
         echo "Build Completed" | mail -s "GitHub Actions Status" khodiarbhagwan@gmail.com
+
 
