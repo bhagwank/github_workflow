@@ -18,4 +18,5 @@ jobs:
       run: |
         echo "GitHub ref is ${{ github.ref }}"
         echo "Current commit SHA is $GITHUB_SHA"
+        echo $GITHUB_SHA > sha.txt
       
