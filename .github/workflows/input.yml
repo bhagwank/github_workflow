@@ -1,9 +1,6 @@
 name: Manual Test Single Design
 
 on:
-push:
-  branches:
-     - master
   workflow_dispatch:
     inputs:
       design-folder:
