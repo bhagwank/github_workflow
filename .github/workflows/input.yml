@@ -1,0 +1,20 @@
+name: Manual Test Single Design
+
+on:
+push:
+  branches:
+     - master
+  workflow_dispatch:
+    inputs:
+      design-folder:
+        description: 'Single design folder to test'
+        required: true
+
+jobs:
+  run-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Run test for ${{ inputs.design-folder }}
+        run: echo ${{ inputs.design-folder }}
